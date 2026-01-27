@@ -10,21 +10,38 @@ Images are built weekly via Github Actions and can be downloaded from the Github
 
 These tags are available. They are updated once a week or on merges to main.
 
-- 'ghcr.io/bpadair32/alma-systemd:latest'
+| Tag | Base Image |
+|-----|------------|
+| `ghcr.io/bpadair32/docker-image-alma9-systemd:alma9` | AlmaLinux 9 |
+| `ghcr.io/bpadair32/docker-image-alma9-systemd:alma10` | AlmaLinux 10 |
 
 ## Usage
 
 - [Install Docker](https://docs.docker.com/engine/installation/).
-- Pull the image from GitHub Container Repository: `docker pull ghcr.io/bpadair32/docker-image-alma9-systemd:latest` 
+- Pull the image from GitHub Container Repository:
+
+```bash
+# For AlmaLinux 9
+docker pull ghcr.io/bpadair32/docker-image-alma9-systemd:alma9
+
+# For AlmaLinux 10
+docker pull ghcr.io/bpadair32/docker-image-alma9-systemd:alma10
+```
+
 - Run the container via Docker:
 
 ```bash
-docker run -- detach --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw --cgroupns=host ghcr.io/bpadair32/docker-image-alma9-systemd:latest --volume='pwd':/etc/ansible/roles/role_to_test:ro
+# AlmaLinux 9
+docker run --detach --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw --cgroupns=host --volume=$(pwd):/etc/ansible/roles/role_to_test:ro ghcr.io/bpadair32/docker-image-alma9-systemd:alma9
+
+# AlmaLinux 10
+docker run --detach --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw --cgroupns=host --volume=$(pwd):/etc/ansible/roles/role_to_test:ro ghcr.io/bpadair32/docker-image-alma9-systemd:alma10
 ```
+
 - Run ansible commands inside the container:
 
   a. `docker exec --tty [container_id] env TERM=xterm ansible --version`
-  
+
   b. `docker exec --tty [container_id] env TERM=xterm ansible-playbook /path-to/playbook.yml --syntax-check` 
 
 ## Authors
