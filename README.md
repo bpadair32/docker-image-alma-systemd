@@ -1,6 +1,6 @@
 # AlmaLinux Container image for Ansible Testing
 
-[![Build](https://github.com/bpadair32/docker-image-alma9-systemd/actions/workflows/build.yml/badge.svg)](https://github.com/bpadair32/docker-image-alma9-systemd/actions/workflows/build.yml)
+[![Build](https://github.com/bpadair32/docker-image-alma-systemd/actions/workflows/build.yml/badge.svg)](https://github.com/bpadair32/docker-image-alma-systemd/actions/workflows/build.yml)
 
 Systemd AlmaLinux container images for testing roles and playbooks with molecule.
 
@@ -12,8 +12,8 @@ These tags are available. They are updated once a week or on merges to main.
 
 | Tag | Base Image |
 |-----|------------|
-| `ghcr.io/bpadair32/docker-image-alma9-systemd:alma9` | AlmaLinux 9 |
-| `ghcr.io/bpadair32/docker-image-alma9-systemd:alma10` | AlmaLinux 10 |
+| `ghcr.io/bpadair32/docker-image-alma-systemd:alma9` | AlmaLinux 9 |
+| `ghcr.io/bpadair32/docker-image-alma-systemd:alma10` | AlmaLinux 10 |
 
 ## Usage
 
@@ -22,20 +22,20 @@ These tags are available. They are updated once a week or on merges to main.
 
 ```bash
 # For AlmaLinux 9
-docker pull ghcr.io/bpadair32/docker-image-alma9-systemd:alma9
+docker pull ghcr.io/bpadair32/docker-image-alma-systemd:alma9
 
 # For AlmaLinux 10
-docker pull ghcr.io/bpadair32/docker-image-alma9-systemd:alma10
+docker pull ghcr.io/bpadair32/docker-image-alma-systemd:alma10
 ```
 
 - Run the container via Docker:
 
 ```bash
 # AlmaLinux 9
-docker run --detach --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw --cgroupns=host --volume=$(pwd):/etc/ansible/roles/role_to_test:ro ghcr.io/bpadair32/docker-image-alma9-systemd:alma9
+docker run --detach --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw --cgroupns=host --volume=$(pwd):/etc/ansible/roles/role_to_test:ro ghcr.io/bpadair32/docker-image-alma-systemd:alma9
 
 # AlmaLinux 10
-docker run --detach --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw --cgroupns=host --volume=$(pwd):/etc/ansible/roles/role_to_test:ro ghcr.io/bpadair32/docker-image-alma9-systemd:alma10
+docker run --detach --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw --cgroupns=host --volume=$(pwd):/etc/ansible/roles/role_to_test:ro ghcr.io/bpadair32/docker-image-alma-systemd:alma10
 ```
 
 - Run ansible commands inside the container:
