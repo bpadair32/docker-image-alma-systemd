@@ -1,4 +1,4 @@
-FROM almalinux:9
+FROM almalinux:10
 LABEL maintainer="Brad Adair brad@adair.tech"
 ENV container=docker
 
